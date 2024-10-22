@@ -29,12 +29,15 @@ public class MainTask3 {
 
     public void moveTo(Person person, Position destination) {
         List<Transport> transports = List.of(new Car(person), new Bus("43", person), new Bus("50", person));
-        Router router = new Router();
-        while (!router.isFasterToWalk(person.getPosition(), transports, destination)) {
-            Transport transport = router.getBestTransport(person.getPosition(), transports, destination);
-            person.walk(transport.getPosition());
-            transport.movePersonToDestination(person, destination);
+        while (transports.size() > 1) {
+            Transport transport = transports.getFirst();
+            transports.removeFirst();
+            if (person.getPosition() != transport.getPosition())
+                person.walk(transport.getPosition());
+            transport.movePersonToDestination(person, transports.getFirst().getPosition());
         }
-        person.walk(destination);
+        transports.getFirst().movePersonToDestination(person, destination);
+        if (person.getPosition() != destination)
+            person.walk(destination);
     }
 }

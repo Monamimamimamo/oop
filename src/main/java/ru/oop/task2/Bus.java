@@ -1,7 +1,8 @@
 package ru.oop.task2;
 
 /**
- * Один из видов транспорта
+ * Один из видов транспорта <br>
+ * Немного медленнее машины
  */
 
 public class Bus implements Transport {

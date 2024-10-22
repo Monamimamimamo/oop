@@ -2,7 +2,8 @@ package ru.oop.task3;
 
 
 /**
- * Один из видов транспорта
+ * Один из видов транспорта <br>
+ * Немного медленнее машины
  */
 
 public class Bus implements Transport {
@@ -10,9 +11,6 @@ public class Bus implements Transport {
     String number;
     Person person;
 
-    /**
-     * Один из видов транспорта
-     */
     public Bus(String number, Person person) {
     }
 
